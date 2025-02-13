@@ -5,7 +5,7 @@ const BurgerStack = ({ stack, removeFromBurger }) => {
   return (
     <ul>
       {stack.length === 0 ? (
-        <p>No Ingredients...start stacking!</p>
+        <p>No Ingredients? STACK!</p>
       ) : (
         stack.map((ingredient, index) => (
           <Ingredient 
