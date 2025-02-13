@@ -28,13 +28,15 @@
 
 html, body, #root {
   margin: 0;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
   background-color: var(--background-dark);
-  background-image: url('https://s3-us-west-2.amazonaws.com/photoawardscom/upload/2014/large/8-84841-14_IPA_FloatingBurgerIPA.jpg'); /* Local file */
+  background-image: url('/public/floating_burger.jpg'); /* Local file */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  color: var(--text-color);
+  transition: background-color 0.3s ease-in-out;
 }
 
 main {
