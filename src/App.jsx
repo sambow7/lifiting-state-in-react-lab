@@ -1,9 +1,7 @@
-// src/App.jsx
-
 import './App.css';
+import { useState } from 'react';
 import BurgerStack from './components/BurgerStack/BurgerStack';
 import IngredientList from './components/IngredientList/IngredientList';
-import { useState } from 'react';
 
 const App = () => {
   const availableIngredients = [
@@ -23,22 +21,38 @@ const App = () => {
     { name: 'Swiss Cheese', color: '#F1E1A8' },
   ];
 
-  const [stack, setStack] = useState({});
+  const [stack, setStack] = useState([]);
 
-  const addToBurger = (event) => {
-    
+  // Function to add ingredients to stack
+  const addToBurger = (ingredient) => {
+    setStack([...stack, ingredient]); // Adds to the end
+  };
 
-  }
-  const removeFromBurger = (event) => {
 
-  }
+  // Note: This does not preserve the order of ingredients in the stack
+
+  // To preserve the order, use the filter method instead of slice and spread syntax:
+
+  // const removeFromBurger = (index) => {
+  //   setStack(stack.filter((_, i) => i!== index));
+  // };
+
+  // To preserve the order, use the slice method with spread syntax:
+
+  // const removeFromBurger = (index) => {
+  //   setStack([...stack.slice(0, index),...stack.slice(index + 1)]);
+  // };
+
+  const removeFromBurger = (index) => {
+    setStack(stack.map((item, i) => (i === index ? null : item)).filter(Boolean));
+  };
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList />
-        <BurgerStack />
+        <IngredientList ingredients={availableIngredients} addToBurger={addToBurger} />
+        <BurgerStack stack={stack} removeFromBurger={removeFromBurger} />
       </section>
     </main>
   );
