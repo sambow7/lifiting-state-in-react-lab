@@ -13,21 +13,26 @@ const App = () => {
     { name: 'Soy Patty', color: '#3F250B' },
     { name: 'Black Bean Patty', color: '#3F250B' },
     { name: 'Chicken Patty', color: 'burlywood' },
+    { name: 'Bacon', color: 'maroon' },
     { name: 'Lettuce', color: 'lawngreen' },
     { name: 'Tomato', color: 'tomato' },
-    { name: 'Bacon', color: 'maroon' },
+    { name: 'Pickles', color: 'green' },
     { name: 'Onion', color: 'lightyellow' },
+    { name: 'Jalapeno', color: 'darkgreen' },
+    { name: 'Mushrooms', color: '#7A6955' },
     { name: 'Cheddar Cheese', color: '#FDE18B' },
     { name: 'Swiss Cheese', color: '#F1E1A8' },
+    { name: 'Mozzarella Cheese', color: '#FDE18B' },
+    { name: 'Ketchup', color: '#d81616' },
+    { name: 'Mayo', color: '#ffffee' },
+    { name: 'Mustaaard!!', color: '#e1ad01' },
+
   ];
 
   const [stack, setStack] = useState([]);
-
-  // Function to add ingredients to stack
   const addToBurger = (ingredient) => {
     setStack([...stack, ingredient]); // Adds to the end
   };
-
 
   // Note: This does not preserve the order of ingredients in the stack
 
